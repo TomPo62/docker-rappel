@@ -1,3 +1,3 @@
-# Docker Compose Section
+# **Docker** Compose Section
 
 In progress... 🪛👨‍💻
