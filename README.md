@@ -44,8 +44,8 @@ Ce dépôt est organisé en plusieurs sections, chacune dédiée à un aspect pa
 - **[Volumes](./Docker/Volumes/README.md):** Apprenez à utiliser les volumes pour la persistance des données dans **Docker**.
 - **[Images](./Docker/Images/README.md):** Trouvez comment gérer les images **Docker**, y compris la construction, le stockage et l'optimisation.
 - **[Réseaux](./Docker/Network/README.md):** Comprenez comment connecter les conteneurs **Docker** à travers des réseaux.
-- **[**Docker** Compose](./Docker/Docker%20Compose/README.md):** Maîtrisez l'outil **Docker** Compose pour la gestion des applications multi-conteneurs.
-- **[**Docker**file](./Docker/Dockerfile/README.md):** Apprenez à écrire des Dockerfiles pour construire des images personnalisées.
+- **[Docker Compose](./Docker/Docker%20Compose/README.md):** Maîtrisez l'outil **Docker** Compose pour la gestion des applications multi-conteneurs.
+- **[Dockerfile](./Docker/Dockerfile/README.md):** Apprenez à écrire des Dockerfiles pour construire des images personnalisées.
 
 ## Contribuer
 
