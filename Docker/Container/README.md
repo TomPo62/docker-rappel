@@ -85,9 +85,7 @@ Supposons que vous souhaitiez explorer le contenu d'un conteneur Nginx ou apport
     ```
 
   2. **Exécuter un Shell Interactif dans le Conteneur :**
-
-    Pour ouvrir un shell **Bash** à l'intérieur du conteneur, utilisez :
-    
+  Pour ouvrir un shell **Bash** à l'intérieur du conteneur, utilisez :
     ```
     docker exec -it explore-nginx /bin/bash
     ```
