@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # PHP Service
+  php:
+    build: "./php_docker"
+    volumes:
+      - ./app:/var/www/html
+
+  # le serveur
+  apache:
+    build: "./apache_docker"
+    depends_on:
+      - php
+    ports:
+      - "8085:80"
+    volumes:
+      - ./app:/var/www/html
+
+  # service for database
+  mariadb:
+    image: mariadb:latest
+    # environment:
+    #   - MYSQL_ROOT_PASSWORD
+    #   - MYSQL_DATABASE
+    #   - MYSQL_USER
+    #   - MYSQL_PASSWORD
+    #   - MYSQL_HOST
+    #   - PMA_HOST
+    # Et comme MYSQL_HOST et PMA_HOST sont identique, nous pouvons utiliser notre MARIA_DB du fichier .en comme ca :
+    #   - MYSQL_HOST=${MARIA_DB}
+    #   - PMA_HOST=${MARIA_DB}
+
+
+    env_file:
+      - .env
+    volumes:
+      - mydatabase:/var/lib/mysql
+
+  # Graphical interface PHPMYADMIN
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - "8084:80"
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+
+# Nommed Volume
+volumes:
+  mydatabase:
+
+networks:
+  default:
+  lamp-test:
