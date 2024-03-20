@@ -80,16 +80,15 @@ Lorsque vous lancez un conteneur Docker, l'option `-it` joue un rôle crucial po
 Supposons que vous souhaitiez explorer le contenu d'un conteneur Nginx ou apporter des modifications temporaires pour tester quelque chose. Vous pourriez vouloir démarrer un shell **Bash** à l'intérieur du conteneur pour interagir directement avec son système de fichiers et ses processus. Voici comment procéder :
 
   1. **Lancer un Conteneur Nginx :**
-    ```
-    docker run --name explore-nginx -d -p 8080:80 nginx
-    ```
+  ```
+  docker run --name explore-nginx -d -p 8080:80 nginx
+  ```
 
   2. **Exécuter un Shell Interactif dans le Conteneur :**
-
-    Pour ouvrir un shell **Bash** à l'intérieur du conteneur, utilisez :
-    ```
-    docker exec -it explore-nginx /bin/bash
-    ```
+  Pour ouvrir un shell **Bash** à l'intérieur du conteneur, utilisez :
+  ```
+  docker exec -it explore-nginx /bin/bash
+  ```
 
 Dans cet exemple :
 
