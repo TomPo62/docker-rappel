@@ -43,7 +43,7 @@ networks:
 
 Dans cet exemple, deux services sont configurés :
 
-  - **`a`**: qui construit un conteneur à partir d'un **Dockerfile** situé dans le répertoire `./front` et exécute la commande `ping google.fr`.
+  - **`a`**: qui construit un conteneur nommé `tata` à partir d'un **Dockerfile** situé dans le répertoire `./front` et exécute la commande `ping google.fr`.
   - **`b`**, qui utilise l'image alpine pour créer un conteneur nommé `toto` et exécute également `ping google.fr`.
 
 ### Démarrage des services
@@ -55,14 +55,14 @@ Pour démarrer tous les services définis dans votre fichier `docker-compose.yml
 
 Pour démarrer les services en arrière-plan, ajoutez l'option `-d` (`--detach`) :
   ```
-  docker-compose up -d
+  docker compose up -d
   ```
 
 ### Arrêt des services
 
 Pour arrêter tous les services démarrés par **Docker Compose**, utilisez :
 ```
-docker-compose down
+docker compose down
 ```
 
 ## Autre exemple
