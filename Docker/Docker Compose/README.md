@@ -50,7 +50,7 @@ Dans cet exemple, deux services sont configurés :
 
 Pour démarrer tous les services définis dans votre fichier `docker-compose.yml`, exécutez :
   ```
-  docker-compose up
+  docker compose up
   ```
 
 Pour démarrer les services en arrière-plan, ajoutez l'option `-d` (`--detach`) :
