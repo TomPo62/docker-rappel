@@ -48,7 +48,7 @@ Le fichier `.env` est déjà **configuré avec des valeurs par défaut**. Assure
 
 4. Lancer l'environnement avec **Docker Compose** :
   ```
-  docker-compose up -d
+  docker compose up -d
   ```
   OU
   ```
