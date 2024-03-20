@@ -1,18 +1,26 @@
+# Commencer par definir une version, cette version correspond a la version de Docker utilisée.
 version: '3.8'
 
+# Declarer des services
 services:
   # PHP Service
   php:
+    # Construire notre propre images avec nos propres parametres et config, ce sera un Dockerfile dans le dossier /php_docker
     build: "./php_docker"
+    # Notre service PHP prendra en compte notre dossier app pour notre developpement d'application
     volumes:
       - ./app:/var/www/html
 
-  # le serveur
+  # the server
   apache:
+    # Construire notre propre images avec nos propres parametres et config, ce sera un Dockerfile dans le dossier /apache_docker
     build: "./apache_docker"
+    # Attendre que le service PHP soit disponible pour lancer le server Apache
     depends_on:
       - php
+    # Port exposé dans le navigateur (localhost:8084)
     ports:
+
       - "8085:80"
     volumes:
       - ./app:/var/www/html
@@ -27,30 +35,36 @@ services:
     #   - MYSQL_PASSWORD
     #   - MYSQL_HOST
     #   - PMA_HOST
-    # Et comme MYSQL_HOST et PMA_HOST sont identique, nous pouvons utiliser notre MARIA_DB du fichier .en comme ca :
+    # Et comme MYSQL_HOST et PMA_HOST sont identique, nous pouvons utiliser notre MARIA_DB du fichier .env comme ca :
     #   - MYSQL_HOST=${MARIA_DB}
     #   - PMA_HOST=${MARIA_DB}
 
-
+    # Le env_file comprends toutes les valeurs du fichier .env, ceci est moins securisé que d'entrer chaque valeurs dans environment, privilegier le environment au env_file, même si les deux fonctionnent.
     env_file:
       - .env
+    # Notre service MariaDB aura donc un volume appelé mydatabase
     volumes:
       - mydatabase:/var/lib/mysql
 
   # Graphical interface PHPMYADMIN
   phpmyadmin:
+    # Image officielle de PHPMYADMIN
     image: phpmyadmin
+    # Port exposé dans le navigateur (localhost:8084)
     ports:
       - "8084:80"
     env_file:
       - .env
+    # Attendre que le service MariaDB soit disponible avant de lancer le service PHPMYADMIN
     depends_on:
       - mariadb
 
 # Nommed Volume
+# Volume nommé pour indiquer dans quel volume seront nos services
 volumes:
   mydatabase:
 
+# Le reseau (default), generalement pour pouvoir recuperer nos base de données entre applications
 networks:
   default:
   lamp-test:

@@ -1,3 +1,5 @@
+<!-- Ceci est un index.html mais renommé en .php pour pouvoir y integrer du php, pour l'instant aucunes utilité, juste confirmer le fonctionnement du rendu du dossier app dans le navigateur (localhost:8085) -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
